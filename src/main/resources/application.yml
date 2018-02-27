@@ -1,0 +1,31 @@
+server:
+  port: 6196
+spring:
+  application:
+    name: admin-server
+  profiles:
+    active: dev
+  boot:
+    admin:
+      discovery:
+        converter:
+          management-context-path: /manage
+
+info:
+  version: @project.version@
+management:
+  security:
+    enabled: false
+
+---
+##########################################################
+###################    dev环境的profile   ################
+##########################################################
+spring:
+  profiles: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.191:8201/eureka,http://192.168.1.191:8202/eureka
+
+### 自定义配置
